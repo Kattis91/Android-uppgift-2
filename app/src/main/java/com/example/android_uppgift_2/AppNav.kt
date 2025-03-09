@@ -12,7 +12,13 @@ fun AppNav() {
 
     NavHost(navController = navController, startDestination = "startScreen") {
         composable("startScreen") {
-            StartScreen()
+            StartScreen(navController)
+        }
+        composable("redScreen") {
+            RedScreen()
+        }
+        composable("greenScreen") {
+            GreenScreen()
         }
     }
 }

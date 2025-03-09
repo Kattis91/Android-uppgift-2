@@ -22,9 +22,11 @@ import androidx.compose.ui.text.font.FontWeight.Companion.W300
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun StartScreen() {
+fun StartScreen(navController: NavController) {
 
     var count by remember { mutableStateOf(0) }
 
@@ -57,7 +59,7 @@ fun StartScreen() {
         }
 
         Button(onClick = {
-
+            navController.navigate("redScreen")
         },
             modifier = Modifier
                 .fillMaxWidth()
@@ -77,7 +79,7 @@ fun StartScreen() {
         }
 
         Button(onClick = {
-
+            navController.navigate("greenScreen")
         },
             modifier = Modifier
                 .fillMaxWidth()
@@ -101,5 +103,6 @@ fun StartScreen() {
 @Preview(showBackground = true)
 @Composable
 fun StartScreenPreview() {
-    StartScreen()
+    val previewNavController = rememberNavController()
+    StartScreen(previewNavController)
 }
